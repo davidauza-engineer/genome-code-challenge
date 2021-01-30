@@ -48,6 +48,8 @@ end
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
+  # Gem to keep track of test coverage
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
