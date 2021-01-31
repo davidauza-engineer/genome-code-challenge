@@ -33,8 +33,6 @@ commands:
 
 jobs:
   build_test:
-    environment:
-      CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
     executor: default
     steps:
       - checkout
