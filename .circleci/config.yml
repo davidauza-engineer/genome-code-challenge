@@ -4,7 +4,7 @@ executors:
   default:
     working_directory: ~/genome_code_challenge
     docker:
-      - image: circleci/ruby:2.7.0
+      - image: circleci/ruby:2.7.0-node-browsers
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_PATH: vendor/bundle
@@ -14,6 +14,7 @@ executors:
           DB_HOST: 127.0.0.1
           PG_HOST: 127.0.0.1
           PG_USER: genomecodechallenge
+          NODE_ENV: test
       - image: circleci/postgres:12.3
         environment:
           POSTGRES_DB: genome_code_challenge_test
@@ -44,6 +45,9 @@ jobs:
       - run:
           name: Install bundle
           command: bundle install
+      - run:
+          name: Install node_modules
+          command: yarn install
       - run:
           name: Set application.yml
           command: mv config/application.yml.test config/application.yml
