@@ -63,7 +63,7 @@ jobs:
             ./cc-test-reporter before-build
             bundle exec rspec --profile 10 \
                               --format progress
-            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+             ./cc-test-reporter after-build -t simplecov --exit-code $? || true
       - store_artifacts:
           path: coverage
       - save_cache:
