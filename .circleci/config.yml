@@ -50,6 +50,13 @@ jobs:
       - run:
           name: Setup DB
           command: bundle exec rails db:create db:schema:load --trace
+      - run:
+          name: RSpec
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format progress
+      - store_artifacts:
+          path: coverage
       - save_cache:
           key: genome_code_challenge-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
