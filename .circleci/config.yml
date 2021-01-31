@@ -18,6 +18,7 @@ executors:
         environment:
           POSTGRES_DB: genome_code_challenge_test
           POSTGRES_USER: genomecodechallenge
+          POSTGRES_PASSWORD: password
 
 commands:
   configure_bundler:
@@ -31,7 +32,7 @@ commands:
             gem install bundler
 
 jobs:
-  build:
+  build_test:
     executor: default
     steps:
       - checkout
@@ -49,6 +50,13 @@ jobs:
       - run:
           name: Setup DB
           command: bundle exec rails db:create db:schema:load --trace
+      - run:
+          name: RSpec
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format progress
+      - store_artifacts:
+          path: coverage
       - save_cache:
           key: genome_code_challenge-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
@@ -62,4 +70,4 @@ workflows:
   version: 2
   integrations:
     jobs:
-      - build
+      - build_test
