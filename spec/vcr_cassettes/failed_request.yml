@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?APPID=ec1bfa4878fe518697ed0d19522f2295&q=,uk
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 31 Jan 2021 21:08:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '40'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?APPID=ec1bfa4878fe518697ed0d19522f2295&q=,uk"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"cod":"404","message":"city not found"}'
+  recorded_at: Sun, 31 Jan 2021 21:08:42 GMT
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?APPID=ec1bfa4878fe518697ed0d19522f2295&q=123,uk
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 31 Jan 2021 21:12:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '40'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?APPID=ec1bfa4878fe518697ed0d19522f2295&q=123,uk"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"cod":"404","message":"city not found"}'
+  recorded_at: Sun, 31 Jan 2021 21:12:16 GMT
+recorded_with: VCR 6.0.0

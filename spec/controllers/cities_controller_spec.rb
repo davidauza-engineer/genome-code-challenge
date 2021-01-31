@@ -10,7 +10,7 @@ RSpec.describe CitiesController, type: :controller do
     end
   end
 
-  describe '#display' do
+  describe '#display', vcr: { cassette_name: :failed_request } do
     before { get :display }
 
     it 'assigns a HTTParty::Response object to city' do

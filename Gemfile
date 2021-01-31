@@ -35,7 +35,6 @@ gem 'figaro'
 
 # Dry Initializers
 gem 'dry-initializer'
-gem 'dry-initializer-rails'
 
 # HTTP gem
 gem 'httparty'
@@ -68,6 +67,9 @@ group :test do
   gem 'selenium-webdriver'
   # Gem to keep track of test coverage
   gem 'simplecov', require: false
+  gem 'webmock'
+  # Gem to store API interactions
+  gem 'vcr'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
