@@ -38,6 +38,10 @@ yarn-debug.log*
 # IDE related files
 .idea
 
-# Other files
+# Test related directories/files
 spec/examples.txt
+coverage
+
+# Environment related files
 .env.test.local
+
