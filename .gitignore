@@ -43,5 +43,3 @@ spec/examples.txt
 coverage
 
 # Environment related files
-.env.test.local
-
