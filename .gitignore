@@ -38,4 +38,6 @@ yarn-debug.log*
 # IDE related files
 .idea
 
+# Other files
 spec/examples.txt
+.env.test.local
