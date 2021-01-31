@@ -45,8 +45,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # RSpec & Capybara related gems
   gem 'database_cleaner'
-  gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
   # Code linting gems
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
