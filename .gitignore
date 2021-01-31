@@ -42,4 +42,5 @@ yarn-debug.log*
 spec/examples.txt
 coverage
 
-# Environment related files
+# Ignore application configuration
+/config/application.yml
