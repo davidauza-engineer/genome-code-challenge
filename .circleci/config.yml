@@ -32,7 +32,7 @@ commands:
             gem install bundler
 
 jobs:
-  build:
+  build_test:
     executor: default
     steps:
       - checkout
@@ -70,4 +70,4 @@ workflows:
   version: 2
   integrations:
     jobs:
-      - build
+      - build_test
