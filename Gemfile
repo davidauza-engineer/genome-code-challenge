@@ -46,6 +46,7 @@ group :development, :test do
   # RSpec & Capybara related gems
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   # Code linting gems
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
