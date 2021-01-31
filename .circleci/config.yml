@@ -18,6 +18,7 @@ executors:
         environment:
           POSTGRES_DB: genome_code_challenge_test
           POSTGRES_USER: genomecodechallenge
+          POSTGRES_PASSWORD: password
 
 commands:
   configure_bundler:
