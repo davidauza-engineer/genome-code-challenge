@@ -1,7 +1,4 @@
-
-
-
-[![davidauza-engineer](https://circleci.com/github/davidauza-enginner/genome-code-challenge.svg?style=svg)](https://app.circleci.com/pipelines/github/davidauza-engineer/genome-code-challenge)
+[![davidauza-engineer](https://circleci.com/gh/davidauza-engineer/genome-code-challenge.svg?style=svg)](https://app.circleci.com/pipelines/github/davidauza-engineer/genome-code-challenge)
 
 # README
 
