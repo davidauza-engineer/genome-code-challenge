@@ -1,3 +1,8 @@
+
+
+
+[![davidauza-engineer](https://circleci.com/github/davidauza-enginner/genome-code-challenge.svg?style=svg)](https://app.circleci.com/pipelines/github/davidauza-engineer/genome-code-challenge)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
