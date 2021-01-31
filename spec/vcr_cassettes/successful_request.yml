@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?APPID=ec1bfa4878fe518697ed0d19522f2295&q=New%20York,%20New%20York,%20US,uk
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 31 Jan 2021 21:06:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '491'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?APPID=ec1bfa4878fe518697ed0d19522f2295&q=new%20york,%20new%20york,%20us,uk"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-73.9866,"lat":40.7306},"weather":[{"id":600,"main":"Snow","description":"light
+        snow","icon":"13d"}],"base":"stations","main":{"temp":269.11,"feels_like":263.24,"temp_min":268.15,"temp_max":270.37,"pressure":1025,"humidity":68},"visibility":10000,"wind":{"speed":4.12,"deg":40},"snow":{"1h":0.32},"clouds":{"all":90},"dt":1612127165,"sys":{"type":1,"id":4610,"country":"US","sunrise":1612094803,"sunset":1612131122},"timezone":-18000,"id":5128581,"name":"New
+        York","cod":200}'
+  recorded_at: Sun, 31 Jan 2021 21:06:23 GMT
+recorded_with: VCR 6.0.0

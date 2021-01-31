@@ -1,0 +1,7 @@
+<h1>Genome Weather App</h1>
+
+<%= form_tag cities_display_path, method: 'get' do %>
+  <%= label_tag(:city, 'Search for your city') %>
+  <%= text_field_tag :city, params[:city] %>
+  <%= submit_tag('Search', name: nil) %>
+<% end %>
