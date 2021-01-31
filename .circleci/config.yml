@@ -1,0 +1,65 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/genome_code_challenge
+    docker:
+      - image: circleci/ruby:2.7.0
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_RETRY: 3
+          BUNDLE_VERSION: 2.0.1
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          PG_HOST: 127.0.0.1
+          PG_USER: genomecodechallenge
+      - image: circleci/postgres:12.3
+        environment:
+          POSTGRES_DB: genome_code_challenge_test
+          POSTGRES_USER: genomecodechallenge
+
+commands:
+  configure_bundler:
+    description: Configure bundler
+    steps:
+      - run:
+          name: Configure bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - genome_code_challenge-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          - genome_code_challenge-
+      - configure_bundler
+      - run:
+          name: Install bundle
+          command: bundle install
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+      - run:
+          name: Setup DB
+          command: bundle exec rails db:create db:schema:load --trace
+      - save_cache:
+          key: genome_code_challenge-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - ./genome_code_challenge
+
+workflows:
+  version: 2
+  integrations:
+    jobs:
+      - build
