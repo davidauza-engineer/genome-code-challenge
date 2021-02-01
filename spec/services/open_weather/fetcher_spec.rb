@@ -27,12 +27,12 @@ RSpec.describe OpenWeather::Fetcher do
     end
 
     context 'with wrong data', vcr: { cassette_name: :failed_request } do
-      it 'returns code 404 with a blank city' do
-        expect(described_class.new('').call['cod']).to eq '404'
+      it 'returns code 400 with a blank city' do
+        expect(described_class.new('').call['cod']).to eq '400'
       end
 
       it 'returns code 404 with a not valid city' do
-        expect(described_class.new('123').call['cod']).to eq '404'
+        expect(described_class.new('mystring').call['cod']).to eq '404'
       end
     end
   end

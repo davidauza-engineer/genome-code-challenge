@@ -1,4 +1,41 @@
-<h1>Cities#display</h1>
-<p>Find me in app/views/cities/display.html.erb</p>
-<p><%= @city %></p>
-<%= link_to 'New search', root_path %>
+<div class="container d-flex flex-column justify-content-between text-white">
+  <div class="d-flex justify-content-between mt-4">
+    <a href="<%= root_path %>">
+      <%= image_tag 'ic_arrow_back.png' %>
+    </a>
+    <%= image_tag 'ic_thermostat.png' %>
+  </div>
+
+  <div class="d-flex flex-column align-items-center">
+    <div>
+      <%= @city['name'] || 'City not found' %>
+      <%= image_tag 'ic_location.png' %>
+    </div>
+    <div class="h1">
+      <%= @city.dig('main', 'temp') %>°F
+    </div>
+    <div>
+      <%=
+        @city['weather'] && @city['weather'][0] && @city['weather'][0]['description'].capitalize ||
+          link_to('Please try again.', root_path)
+      %>
+    </div>
+  </div>
+
+  <div class="mb-5 d-flex justify-content-between">
+    <div class="d-flex flex-column align-items-center">
+      <%= image_tag 'ic_wind.png' %>
+      <%= @city.dig('wind', 'speed') %> mph
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= image_tag 'ic_humidity.png', class: 'icon' %>
+      <%= @city.dig('main', 'humidity') %>%
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <%= image_tag 'ic_binoculars.png', class: 'icon' %>
+      <%= @city['visibility'] %> miles
+    </div>
+  </div>
+</div>
