@@ -7,6 +7,7 @@ module OpenWeather
     param :city, reader: :private
 
     def call
+      city = 'null' if city.blank?
       Rails.cache.fetch(city, expires_in: 5.minutes) do
         OpenWeather::Fetcher.new(city).call
       end
