@@ -8,7 +8,7 @@ module OpenWeather
     def call
       api_key = Figaro.env.open_weather_api_key!
       HTTParty.get(
-        "http://api.openweathermap.org/data/2.5/weather?q=#{city},uk&APPID=#{api_key}"
+        "http://api.openweathermap.org/data/2.5/weather?q=#{city}&units=imperial&APPID=#{api_key}"
       )
     end
   end
