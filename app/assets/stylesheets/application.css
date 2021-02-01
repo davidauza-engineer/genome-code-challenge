@@ -14,3 +14,15 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-image: linear-gradient(#FB2B69, #FF5B37);
+}
+
+.container {
+  height: 100vh;
+}
+
+.opaque {
+  opacity: .85;
+}

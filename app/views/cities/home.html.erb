@@ -1,7 +1,22 @@
-<h1>Genome Weather App</h1>
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="d-flex flex-column align-items-center">
+    <div class="logo-container d-flex flex-column align-items-center pb-5 mb-5">
+      <%= image_tag 'logo.png', class: 'main-logo mb-2' %>
+      <h1 class="h2 text-white mb-5 opaque">
+        Weather App<span class="h4 reg">&reg;</span>
+      </h1>
+    </div>
 
-<%= form_tag cities_display_path, method: 'get' do %>
-  <%= label_tag(:city, 'Search for your city') %>
-  <%= text_field_tag :city, params[:city] %>
-  <%= submit_tag('Search', name: nil) %>
-<% end %>
+    <%= form_tag cities_display_path, method: 'get', class: 'mt-5 pt-5' do %>
+      <div class="d-flex flex-column align-items-center">
+        <div class="input-group mb-3">
+          <%= text_field_tag :city, params[:city], placeholder: 'New York, NY, US', class: 'form-control' %>
+          <div class="input-group-append">
+            <%= submit_tag('Search', name: nil, class: 'btn btn-primary') %>
+          </div>
+        </div>
+        <%= label_tag(:city, 'Search for your city', class: 'opaque text-white h5 mt-3') %>
+      </div>
+    <% end %>
+  </div>
+</div>
