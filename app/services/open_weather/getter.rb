@@ -7,9 +7,9 @@ module OpenWeather
     param :city, reader: :private
 
     def call
-      city = 'null' if city.blank?
-      Rails.cache.fetch(city, expires_in: 5.minutes) do
-        OpenWeather::Fetcher.new(city).call
+      location = city.presence || 'null'
+      Rails.cache.fetch(location, expires_in: 5.minutes) do
+        OpenWeather::Fetcher.new(location).call
       end
     end
   end
