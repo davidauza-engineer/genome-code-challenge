@@ -4,7 +4,7 @@ executors:
   default:
     working_directory: ~/genome_code_challenge
     docker:
-      - image: circleci/ruby:2.7.0-node-browsers
+      - image: circleci/ruby:2.6.6-node-browsers
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_PATH: vendor/bundle
