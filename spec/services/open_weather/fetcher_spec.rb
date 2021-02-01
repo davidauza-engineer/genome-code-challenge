@@ -5,19 +5,7 @@ require 'rails_helper'
 RSpec.describe OpenWeather::Fetcher do
   let(:instance) { described_class.new('New York, New York, US') }
 
-  describe '#initialize' do
-    context 'with correct params' do
-      it 'creates an instance of the class' do
-        expect(instance.class).to eq described_class
-      end
-    end
-
-    context 'with wrong params' do
-      it 'raises an ArgumentError when called with no arguments' do
-        expect { described_class.new }.to raise_error ArgumentError
-      end
-    end
-  end
+  include_examples '#initialize'
 
   describe '#call' do
     context 'with correct data' do
