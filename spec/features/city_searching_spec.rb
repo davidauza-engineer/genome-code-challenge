@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# rubocop:disable RSpec/Capybara/FeatureMethods
 RSpec.feature 'City searching', type: :feature do
   scenario 'The user search for an existing city', vcr: { cassette_name: :successful_request } do
     user_visits_the_home_page
@@ -34,3 +35,4 @@ RSpec.feature 'City searching', type: :feature do
     expect(page).to have_text 'Please try again.'
   end
 end
+# rubocop:enable RSpec/Capybara/FeatureMethods
