@@ -8,26 +8,29 @@
 
   <div class="d-flex flex-column align-items-center">
     <div>
-      <%= @city['name'] %>
+      <%= @city['name'] || 'City not found' %>
       <%= image_tag 'ic_location.png' %>
     </div>
     <div class="h1">
-      <%= @city['main']['temp'] %>°F
+      <%= @city.dig('main', 'temp') %>°F
     </div>
     <div>
-      <%= @city['weather'][0]['description'].capitalize %>
+      <%=
+        @city['weather'] && @city['weather'][0] && @city['weather'][0]['description'].capitalize ||
+          link_to('Please try again.', root_path)
+      %>
     </div>
   </div>
 
   <div class="mb-5 d-flex justify-content-between">
     <div class="d-flex flex-column align-items-center">
       <%= image_tag 'ic_wind.png' %>
-      <%= @city['wind']['speed'] %> mph
+      <%= @city.dig('wind', 'speed') %> mph
     </div>
 
     <div class="d-flex flex-column align-items-center">
       <%= image_tag 'ic_humidity.png', class: 'icon' %>
-      <%= @city['main']['humidity'] %>%
+      <%= @city.dig('main', 'humidity') %>%
     </div>
 
     <div class="d-flex flex-column align-items-center">

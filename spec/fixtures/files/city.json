@@ -1,0 +1,16 @@
+{
+  "name": "New York",
+  "main": {
+    "temp": 23.22,
+    "humidity": 69
+  },
+  "weather": [
+    {
+      "description": "Cloudy"
+    }
+  ],
+  "wind": {
+    "speed": 19.57
+  },
+  "visibility": 1800
+}
