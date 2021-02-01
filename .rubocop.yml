@@ -27,3 +27,6 @@ Lint/AmbiguousBlockAssociation:
 
 Style/Documentation:
   Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false

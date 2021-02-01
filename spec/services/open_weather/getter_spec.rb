@@ -33,11 +33,13 @@ RSpec.describe OpenWeather::Getter do
     end
 
     context 'when the data has been fetched' do
-      before do
+      let(:response) do
         VCR.use_cassette :successful_request do
-          @response = instance.call
+          instance.call
         end
       end
+
+      before { response }
 
       it "doesn't call the OpenWeather::Fetcher service" do
         expect_any_instance_of(OpenWeather::Fetcher).not_to receive(:call)
@@ -45,7 +47,7 @@ RSpec.describe OpenWeather::Getter do
       end
 
       it 'returns the cached version of the API response' do
-        expect(instance.call.body).to match @response.body
+        expect(instance.call.body).to match response.body
       end
     end
   end
